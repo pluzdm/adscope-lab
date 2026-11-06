@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-labelledby="title desc">
+  <title id="title">An open book</title>
+  <desc id="desc">A blue and cream book on a pale blue background.</desc>
+  <rect width="480" height="240" fill="#e3effb"/>
+  <path d="M100 65h110l30 20 30-20h110v125H270l-30 20-30-20H100z" fill="#2c62a0"/>
+  <path d="M115 78h91l34 21 34-21h91v98h-91l-34 21-34-21h-91z" fill="#fff9eb"/>
+  <path d="M240 99v98M135 108h62M135 133h62M135 158h62M283 108h62M283 133h62M283 158h62" stroke="#7694b6" stroke-width="5"/>
+</svg>

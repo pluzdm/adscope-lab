@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-labelledby="title desc">
+  <title id="title">A small house and a plant</title>
+  <desc id="desc">A warm yellow house beside a green potted plant.</desc>
+  <rect width="480" height="240" fill="#f5ecdb"/>
+  <path d="M110 115l100-75 100 75" fill="#ad6948"/>
+  <path d="M130 115h160v95H130z" fill="#e7c48a"/>
+  <path d="M192 145h36v65" fill="#765448"/>
+  <rect x="150" y="135" width="28" height="28" fill="#eaf4f5"/>
+  <rect x="242" y="135" width="28" height="28" fill="#eaf4f5"/>
+  <path d="M350 170v-70M350 135q-45-5-40-40 40 0 40 40M350 115q40-5 40-40-40 0-40 40" fill="#5b916b" stroke="#5b916b" stroke-width="5"/>
+  <path d="M325 165h50l-8 45h-34z" fill="#ad6948"/>
+</svg>

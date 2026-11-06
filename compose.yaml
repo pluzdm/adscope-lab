@@ -19,6 +19,22 @@ services:
       retries: 12
       start_period: 10s
 
+  mock-source:
+    build: .
+    image: adscope-lab-app:php8.5.11
+    init: true
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "/var/www/html"]
+    ports:
+      - "127.0.0.1:${MOCK_SOURCE_PORT:-8001}:8000"
+    volumes:
+      - ./mock-source/public:/var/www/html:ro
+    healthcheck:
+      test: ["CMD", "php", "-r", "exit(@file_get_contents('http://127.0.0.1:8000/ads.html') === false ? 1 : 0);"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+
   mysql:
     image: container-registry.oracle.com/mysql/community-server:26.7.1
     platform: linux/amd64

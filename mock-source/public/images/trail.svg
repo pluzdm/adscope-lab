@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" role="img" aria-labelledby="title desc">
+  <title id="title">A trail through green hills</title>
+  <desc id="desc">A winding path crosses two hills beneath a yellow sun.</desc>
+  <rect width="480" height="240" fill="#e4f2f0"/>
+  <circle cx="365" cy="62" r="26" fill="#f2cd65"/>
+  <path d="M0 180L135 65l155 135 100-80 90 75v45H0z" fill="#8eb398"/>
+  <path d="M0 220l170-85 150 85 160-60v80H0z" fill="#527c62"/>
+  <path d="M185 240q120-35 70-65t25-55" fill="none" stroke="#f5e3b8" stroke-width="24"/>
+</svg>
