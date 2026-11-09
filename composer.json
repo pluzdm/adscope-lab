@@ -11,7 +11,8 @@
     "require": {
         "php": "~8.5.11",
         "laravel/framework": "^13.36",
-        "laravel/tinker": "^3.0.2"
+        "laravel/tinker": "^3.0.2",
+        "nwidart/laravel-modules": "^13.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24.1",
@@ -56,6 +57,11 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "merge-plugin": {
+            "include": [
+                "Modules/*/composer.json"
+            ]
         }
     },
     "config": {
@@ -64,7 +70,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "platform": {
             "php": "8.5.11"

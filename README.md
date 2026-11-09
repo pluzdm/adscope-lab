@@ -127,3 +127,21 @@ docker compose logs --tail=100 -f mock-source
 | `.ad-landing-link` → `href` | URL лендинга |
 
 URL в HTML заданы относительно корня источника (`/images/...`, `/landing/...`). При будущем парсинге их нужно разрешать относительно URL страницы источника: так одни и те же файлы работают и в браузере, и по внутреннему адресу Compose.
+
+## Подготовка модулей (Task 03)
+
+Установлен `nwidart/laravel-modules` **13.3.0** для Laravel 13 и PHP 8.3+; текущие Laravel 13.36.0 и PHP 8.5.11 соответствуют этим требованиям. Интеграция следует [официальной инструкции v13](https://laravelmodules.com/docs/13/getting-started/installation-and-setup). Пакет добавляет обнаружение и управление модулями, а также команды Artisan `module:*`. Функциональных модулей пока нет, поэтому `module:list` успешно выводит пустой список.
+
+После получения изменений установите закреплённые версии из `composer.lock` внутри контейнера; повторять `composer require` или публикацию конфигурации не нужно:
+
+```sh
+docker compose up -d --wait --wait-timeout 180
+docker compose exec app composer install --no-interaction --prefer-dist
+docker compose exec app php artisan module:list
+docker compose exec app php artisan list module
+docker compose exec app php artisan help module:make
+```
+
+`config/modules.php` содержит стандартные настройки пакета: каталог `Modules/`, базовое пространство имён `Modules`, PHP-классы будущего модуля в `Modules/<Name>/app/` с namespace `Modules\<Name>`. Провайдер пакета подключается через Laravel package discovery. Composer-плагин `wikimedia/composer-merge-plugin` **2.1.0** явно разрешён в `config.allow-plugins`, прежние разрешения сохранены. `extra.merge-plugin.include` объединяет `Modules/*/composer.json`, включая их PSR-4 autoload; общая запись `Modules\\` в корневом autoload не нужна. После будущих изменений module Composer-файлов автозагрузку можно пересоздать командой `docker compose exec app composer dump-autoload`.
+
+Границы модулей, их зависимости, взаимодействие и внутренняя архитектура остаются решениями проекта. На этом этапе опубликован только конфиг: модули, frontend-ресурсы и пользовательские stubs не создавались.
